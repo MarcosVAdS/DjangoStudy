@@ -3,7 +3,7 @@ from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.base import RedirectView
 from django.http import HttpResponse
-
+from .models import Product
 # Create your views here.
 
 # main function describe a view.
@@ -45,3 +45,9 @@ class HomePageView(TemplateView):
 class ArticleCounterRedirectView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return super().get_redirect_url(*args, **kwargs)
+
+class Products(View):
+    def get(self, request):
+        print(request)
+        products = Product.objects.all()
+        return HttpResponse(products)

@@ -11,6 +11,8 @@ from django.http import HttpResponse
 # something as function below
 def main(request):
     return render(request, 'main.html')
+    # this function describe what todo when request some route with this function
+    # if this route access render main.html
 
 # django has a 3 base class views
 # 1) the class 'view' is the base class
